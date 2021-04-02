@@ -8,8 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "PaymentTransaction")
@@ -25,9 +24,11 @@ public class PaymentTransaction {
 	private String status;
 	@Column
 	private double amount;
-	@OneToOne
+	
+	@ManyToOne
 	@JoinColumn(name="userid")
 	private Customer customer;
+	
 	public PaymentTransaction() {
 		
 	}

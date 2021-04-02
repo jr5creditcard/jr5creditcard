@@ -2,12 +2,11 @@ package com.cg.creditcard.entity;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "Statement")
@@ -18,7 +17,8 @@ public class Statement {
 	private Date billing_date;
 	@Column
 	private Date due_date;
-	@OneToOne (cascade=CascadeType.ALL)
+	
+	@ManyToOne 
 	@JoinColumn(name="userid")
 	private Customer customer;
 	public Statement() {

@@ -1,6 +1,7 @@
 package com.cg.creditcard.entity;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name = "Customer")
@@ -26,12 +29,51 @@ public class Customer {
 	private String contact_no;
 	@Column
 	private Date dob;
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="door_no")
-	private Address  address;
+	
+	@ManyToMany(targetEntity = Account.class,cascade = {CascadeType.ALL})
+	@JoinTable(name = "Account",joinColumns = {@JoinColumn(name="userid")},
+	inverseJoinColumns = {@JoinColumn(name="accountid")})
+	private List<Account>account;
+	
+	@OneToMany(mappedBy = "Customer",cascade = CascadeType.ALL)
+	private List<CreditCard>creditcard;
+	
+	@OneToMany(mappedBy = "Customer",cascade = CascadeType.ALL)
+	private List<Address>address;
+	
+	@OneToMany(mappedBy = "Customer",cascade = CascadeType.ALL)
+	private List<PaymentTransaction>paymentTransaction;
+	
+	@OneToMany(mappedBy = "Customer",cascade = CascadeType.ALL)
+    private List<Statement>statement;
+	
+	public List<PaymentTransaction> getPaymentTransaction() {
+		return paymentTransaction;
+	}
+	public void setPaymentTransaction(List<PaymentTransaction> paymentTransaction) {
+		this.paymentTransaction = paymentTransaction;
+	}
+	public List<Statement> getStatement() {
+		return statement;
+	}
+	public void setStatement(List<Statement> statement) {
+		this.statement = statement;
+	}
+	public List<Address> getAddress() {
+		return address;
+	}
+	public List<CreditCard> getCreditcard() {
+		return creditcard;
+	}
+	public void setCreditcard(List<CreditCard> creditcard) {
+		this.creditcard = creditcard;
+	}
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
 	public Customer() {
 	}
-	public Customer(int userid, String first_name, String last_name, String email, String contact_no, Date dob,Address address) {
+	public Customer(int userid, String first_name, String last_name, String email, String contact_no, Date dob) {
 		super();
 		this.userid = userid;
 		this.first_name = first_name;
@@ -39,7 +81,18 @@ public class Customer {
 		this.email = email;
 		this.contact_no = contact_no;
 		this.dob = dob;
-		this.address=address;
+		
+	}
+	
+	public List<Account> getAccount() {
+		return account;
+	}
+	public void setAccount(List<Account> account) {
+		this.account = account;
+	}
+	
+	public void setContact_no(String contact_no) {
+		this.contact_no = contact_no;
 	}
 	public int getUserid() {
 		return userid;

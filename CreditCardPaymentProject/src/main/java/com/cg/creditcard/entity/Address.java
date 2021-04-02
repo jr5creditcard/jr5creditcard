@@ -1,12 +1,17 @@
 package com.cg.creditcard.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "Address")
 public class Address {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String door_no;
 	@Column
 	private String street;
@@ -29,11 +34,23 @@ public class Address {
 		this.state = state;
 		this.pincode = pincode;
 	}
-	public String getDoorNo() {
+	
+	@ManyToOne
+	@JoinColumn(name = "userid")
+	private Customer customer;
+	
+	
+	public String getDoor_no() {
 		return door_no;
 	}
-	public void setDoorNo(String door_no) {
+	public void setDoor_no(String door_no) {
 		this.door_no = door_no;
+	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 	public String getStreet() {
 		return street;

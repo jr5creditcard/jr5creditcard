@@ -1,11 +1,11 @@
 package com.cg.creditcard.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
@@ -22,8 +22,12 @@ public class CreditCard {
 	private int expiryYear;
 	@Column
 	private double AmountLimit;
-	@ManyToOne (cascade=CascadeType.ALL)
+	
+	@ManyToOne
+	@JoinColumn(name = "userid")
 	private Customer customer;
+	
+	
 	public CreditCard() {
 		
 	}
