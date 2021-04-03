@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import com.cg.creditcard.entity.CreditCard;
 @Repository
 public interface CreditCardRepository extends JpaRepository<CreditCard, Integer>{
-	
+
 }
