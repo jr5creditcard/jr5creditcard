@@ -1,11 +1,12 @@
 package com.cg.creditcard.Dao;
 
-import com.cg.creditcard.entity.PaymentTransaction;
-public interface PaymentTransactionRepository {
-	public PaymentTransaction addPayment(PaymentTransaction payment);
-	public PaymentTransaction removePayment(long id);
-	public PaymentTransaction updatePayment(long id, PaymentTransaction payment);
-	public PaymentTransaction getPayment(long id);
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import com.cg.creditcard.entity.PaymentTransaction;
+
+@Repository
+public interface PaymentTransactionRepository extends JpaRepository<PaymentTransaction,Integer> {
+	
 
 }
