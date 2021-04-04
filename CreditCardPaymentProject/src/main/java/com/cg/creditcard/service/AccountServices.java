@@ -3,12 +3,13 @@ package com.cg.creditcard.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cg.creditcard.Dao.AccountRepository;
 import com.cg.creditcard.entity.Account;
 
 
-
+@Service
 public class AccountServices implements IAccountService{
 	@Autowired
 	AccountRepository repository;

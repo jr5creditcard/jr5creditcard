@@ -1,8 +1,11 @@
 package com.cg.creditcard.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.cg.creditcard.Dao.LoginRepository;
 import com.cg.creditcard.entity.Login;
+@Service
 public class LoginService implements ILoginService{
 @Autowired
 LoginRepository repository;
