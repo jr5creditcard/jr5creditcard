@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "Customer")
@@ -46,6 +47,9 @@ public class Customer {
 	
 	@OneToMany(mappedBy = "Customer",cascade = CascadeType.ALL)
     private List<Statement>statement;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private List<Login>login;
 	
 	public List<PaymentTransaction> getPaymentTransaction() {
 		return paymentTransaction;
@@ -90,10 +94,6 @@ public class Customer {
 	public void setAccount(List<Account> account) {
 		this.account = account;
 	}
-	
-	public void setContact_no(String contact_no) {
-		this.contact_no = contact_no;
-	}
 	public int getUserid() {
 		return userid;
 	}
@@ -118,11 +118,18 @@ public class Customer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public List<Login> getLogin() {
+		return login;
+	}
+	public void setLogin(List<Login> login) {
+		this.login = login;
+	}
 	public String getContact_no() {
 		return contact_no;
 	}
-	public void setContactNo(String contact_no) {
-		this.contact_no = contact_no;
+	public void setContact_no(String contact_no) {
+		this.contact_no=contact_no;
 	}
 	public Date getDob() {
 		return dob;

@@ -13,15 +13,15 @@ import javax.persistence.Table;
 public class CreditCard {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long cardNumber;
+	private long card_number;
 	@Column(length =30)
-	private String cardName;
+	private String card_name;
 	@Column
-	private int expiryMonth;
+	private int expiry_month;
 	@Column
-	private int expiryYear;
+	private int expiry_year;
 	@Column
-	private double AmountLimit;
+	private double amount_limit;
 	
 	@ManyToOne
 	@JoinColumn(name = "userid")
@@ -29,52 +29,55 @@ public class CreditCard {
 	
 	
 	public CreditCard() {
-		
 	}
-	public CreditCard(long cardNumber, String cardName, int expiryMonth,int expiryYear, double amountLimit) {
+
+
+	public CreditCard(long card_number, String card_name, int expiry_month, int expiry_year, double amount_limit,
+			Customer customer) {
 		super();
-		this.cardNumber = cardNumber;
-		this.cardName = cardName;
-		this.expiryMonth=expiryMonth;
-		this.expiryYear=expiryYear;
-		AmountLimit = amountLimit;
+		this.card_number = card_number;
+		this.card_name = card_name;
+		this.expiry_month = expiry_month;
+		this.expiry_year = expiry_year;
+		this.amount_limit = amount_limit;
+		this.customer = customer;
 	}
-	public long getCardNumber() {
-		return cardNumber;
+	public long getCard_number() {
+		return card_number;
 	}
-	public void setCardNumber(long cardNumber) {
-		this.cardNumber = cardNumber;
+	public void setCard_number(long card_number) {
+		this.card_number = card_number;
 	}
-	public String getCardName() {
-		return cardName;
+	public String getCard_name() {
+		return card_name;
 	}
-	public void setCardName(String cardName) {
-		this.cardName = cardName;
+	public  void setCard_name(String card_name) {
+		this.card_name = card_name;
 	}
-	
-	public int getExpiryMonth() {
-		return expiryMonth;
+	public int getExpiry_month() {
+		return expiry_month;
 	}
-	public void setExpiryMonth(int expiryMonth) {
-		this.expiryMonth = expiryMonth;
+	public void setExpiry_month(int expiry_month) {
+		this.expiry_month = expiry_month;
 	}
-	public int getExpiryYear() {
-		return expiryYear;
+	public int getExpiry_year() {
+		return expiry_year;
 	}
-	public void setExpiryYear(int expiryYear) {
-		this.expiryYear = expiryYear;
+	public void setExpiry_year(int expiry_year) {
+		this.expiry_year = expiry_year;
 	}
-	public double getAmountLimit() {
-		return AmountLimit;
+	public double getAmount_limit() {
+		return amount_limit;
 	}
-	public void setAmountLimit(double amountLimit) {
-		AmountLimit = amountLimit;
+	public void setAmount_limit(double amount_limit) {
+		this.amount_limit = amount_limit;
 	}
 	public Customer getCustomer() {
 		return customer;
 	}
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
-	}
+	}	
+	
 	
 }
