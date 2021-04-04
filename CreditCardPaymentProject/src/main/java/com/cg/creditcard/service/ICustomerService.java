@@ -9,5 +9,5 @@ public interface ICustomerService {
 	public void removeCustomer(int id);
 	public Customer getCustomer(int id);
 	public void updateCustomer(int id, Customer customer);
-	public List<Customer> getAllAccount();
+	public List<Customer> getAllCustomer();
 }
