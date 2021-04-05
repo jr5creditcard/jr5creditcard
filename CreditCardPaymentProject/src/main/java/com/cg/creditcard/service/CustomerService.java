@@ -3,10 +3,11 @@ package com.cg.creditcard.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cg.creditcard.Dao.CustomerRepository;
 import com.cg.creditcard.entity.Customer;
-
+@Service
 public class CustomerService implements ICustomerService {
 	@Autowired
 	CustomerRepository repository;

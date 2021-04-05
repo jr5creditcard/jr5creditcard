@@ -2,10 +2,11 @@ package com.cg.creditcard.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cg.creditcard.Dao.PaymentTransactionRepository;
 import com.cg.creditcard.entity.PaymentTransaction;
-
+@Service
 public class PaymentServices implements IPaymentService{
 	@Autowired
 	PaymentTransactionRepository repository;
