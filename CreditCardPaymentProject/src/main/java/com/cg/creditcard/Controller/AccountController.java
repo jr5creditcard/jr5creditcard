@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.creditcard.entity.Account;
 import com.cg.creditcard.service.AccountServices;
-
-
 @RestController
 @RequestMapping("/Account")
 public class AccountController {

@@ -21,7 +21,6 @@ import com.cg.creditcard.service.CustomerService;
 @RestController
 @RequestMapping("/Customer")
 public class CustomerController {
-
 		@Autowired
 		CustomerService custServices;
 			

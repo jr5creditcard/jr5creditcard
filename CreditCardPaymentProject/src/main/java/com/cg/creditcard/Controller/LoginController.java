@@ -28,5 +28,4 @@ public ResponseEntity<String> updatePayment(@RequestBody Login user,@PathVariabl
 	service.changePassword(userid, user);
 	return new ResponseEntity<String>("Successfully updated", HttpStatus.OK); 	
 }
-
 }
