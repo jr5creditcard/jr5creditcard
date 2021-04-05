@@ -7,8 +7,10 @@ public class LoginService implements ILoginService{
 @Autowired
 LoginRepository repository;
 @Override
-public void  signIn(int userid) {
+public Login  signIn(int userid) {
 	repository.findById(userid);
+	return null;
+	
 }
 @Override
 public void changePassword(int userid, Login user) {

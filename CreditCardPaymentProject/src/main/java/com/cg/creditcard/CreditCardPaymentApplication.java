@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
+import com.cg.creditcard.Dao.AccountRepository;
+
+@SpringBootApplication(scanBasePackageClasses= {AccountRepository.class})
 @EntityScan("com.entites")
 @EnableJpaRepositories("sample.data.jpa.service")
 public class CreditCardPaymentApplication{
